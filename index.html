@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="color-scheme" content="dark">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#06070d">
+  <title>NodeMask - Calculadora de subredes</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="glow"></div>
+  <div class="wrap">
+
+    <header class="nav">
+      <div class="marca">
+        <svg viewBox="0 0 32 32" width="30" height="30" aria-hidden="true">
+          <defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4f7cff"/><stop offset="1" stop-color="#a45cff"/></linearGradient></defs>
+          <path d="M6 26V6l20 20V6" fill="none" stroke="url(#lg)" stroke-width="3.4" stroke-linejoin="round" stroke-linecap="round"/>
+        </svg>
+        <span>NodeMask</span>
+      </div>
+      <p class="lema">Calcula. <span>Segmenta.</span></p>
+    </header>
+
+    <section class="hero">
+      <p class="sobre">Calculadora IPv4</p>
+      <h1>Calcula<br><span class="grad">subredes</span><br>sin errores</h1>
+      <p class="desc">Obtén la dirección de red, el broadcast y el rango de hosts a partir de cualquier IP y prefijo.</p>
+    </section>
+
+    <section class="panel">
+      <div class="campos">
+        <label>Dirección IP
+          <input id="ip" type="text" inputmode="decimal" placeholder="192.168.10.25" autocomplete="off" autocapitalize="off" spellcheck="false">
+        </label>
+        <label>Prefijo
+          <select id="prefijo"></select>
+        </label>
+      </div>
+      <div class="botones">
+        <button id="calcular" class="btn principal">Calcular
+          <span class="flecha"><svg viewBox="0 0 24 24"><path d="M7 17L17 7M8 7h9v9"/></svg></span>
+        </button>
+        <button id="limpiar" class="btn fantasma">Limpiar</button>
+      </div>
+      <div id="ejemplos" class="chips">
+        <button data-v="192.168.1.10/24">192.168.1.10/24</button>
+        <button data-v="10.20.30.40/8">10.20.30.40/8</button>
+        <button data-v="172.16.5.130/26">172.16.5.130/26</button>
+      </div>
+      <p id="error" class="error"></p>
+    </section>
+
+    <section id="resultado" hidden>
+      <p class="sobre">Resultado</p>
+      <h2>Red <span class="grad">calculada</span></h2>
+
+      <div class="panel">
+        <p class="mini">Representación binaria</p>
+        <div id="bits" class="bits"></div>
+        <p class="leyenda"><i class="n"></i>Bits de red <i class="h"></i>Bits de host</p>
+      </div>
+
+      <div id="datos" class="datos"></div>
+
+      <div id="bloque-split" class="panel">
+        <div class="split-cab">
+          <p class="mini">Dividir en subredes</p>
+          <select id="nuevo"></select>
+        </div>
+        <div id="tabla"></div>
+        <p id="nota" class="nota"></p>
+      </div>
+    </section>
+
+    <section class="rasgos">
+      <div class="rasgo">
+        <span class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/><path d="M9 12l2 2 4-4"/></svg></span>
+        <b>Validación</b><small>Revisa cada octeto y el prefijo.</small>
+      </div>
+      <div class="rasgo">
+        <span class="ico"><svg viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></span>
+        <b>Instantáneo</b><small>Cálculo con operaciones de bits.</small>
+      </div>
+      <div class="rasgo">
+        <span class="ico"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M9 9v6M14 9v6"/></svg></span>
+        <b>Binario</b><small>Visualiza red y host bit a bit.</small>
+      </div>
+      <div class="rasgo">
+        <span class="ico"><svg viewBox="0 0 24 24"><path d="M5 12.5a10 10 0 0114 0M8.5 16a5 5 0 017 0M12 19.5h.01"/></svg></span>
+        <b>Sin conexión</b><small>No necesita internet ni librerías.</small>
+      </div>
+    </section>
+
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
